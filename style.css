@@ -1,0 +1,459 @@
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+}
+
+body {
+    color: #333333;
+    line-height: 1.6;
+}
+
+.container {
+    width: 90%;
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 0 15px;
+}
+
+a {
+    text-decoration: none;
+    color: inherit;
+    transition: all 0.3s ease;
+}
+
+header {
+    background-color: #ffffffcf;
+    box-shadow: 0 2px 10px rgba(0, 0, 0, 0.19);
+    position: fixed;
+    width: 100%;
+    top: 0;
+    z-index: 1000;
+}
+
+nav {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 20px 0;
+}
+
+.logo {
+    font-size: 24px;
+    font-weight: bold;
+    color: #333;
+}
+
+.nav-links {
+    display: flex;
+    list-style: none;
+}
+
+.nav-links li {
+    margin-left: 30px;
+}
+
+.nav-links a {
+    position: relative;
+    padding: 5px 0;
+}
+
+.nav-links a::after {
+    content: '';
+    position: absolute;
+    width: 0;
+    height: 2px;
+    bottom: 0;
+    left: 0;
+    background-color: #121521;
+    transition: width 0.3s ease;
+}
+
+.nav-links a:hover::after {
+    width: 100%;
+}
+
+.hero {
+    background: linear-gradient(rgba(0, 0, 0, 0.7), rgba(0, 0, 0, 0.7)), 
+                url(WhatsApp\ Image\ 2025-08-31\ at\ 21.52.06_c15d8829.jpg) 
+                no-repeat 
+                center center/cover; 
+    height: 100vh;
+    display: flex;
+    align-items: center;
+    text-align: center;
+    color: #fff;
+    margin-top: 70px;
+}
+
+.hero-content h2 {
+    font-size: 28px;
+    margin-bottom: 15px;
+    color: #ebeef1;
+    text-transform: uppercase;
+    letter-spacing: 2px;
+}
+
+.hero h1 {
+    font-size: 48px;
+    margin-bottom: 20px;
+}
+
+.hero p {
+    font-size: 20px;
+    margin-bottom: 30px;
+}
+
+.btn {
+    display: inline-block;
+    background-color: #d0d2d4;
+    color: #252525;
+    padding: 12px 30px;
+    border-radius: 30px;
+    font-weight: bold;
+    text-transform: uppercase;
+    transition: all 0.3s ease;
+}
+
+.btn:hover {
+    transform: scale(1.1);
+    background-color: #000000;
+    color: #c9c8c8;
+    box-shadow: 0 5px 15px rgba(146, 148, 157, 0.705);
+}
+
+.about {
+    padding: 100px 0;
+    text-align: center;
+    background-color: #c0c1c3;
+}
+
+.about-description {
+    font-size: 18px;
+    max-width: 700px;
+    margin: 0 auto;
+    color: #555;
+    line-height: 1.8;
+}
+
+.services {
+    padding: 100px 0;
+    background-color: #c0c1c3;
+    text-align: center;
+}
+
+.section-title {
+    font-size: 36px;
+    margin-bottom: 50px;
+    position: relative;
+    display: inline-block;
+    color: #000;
+}
+
+.section-title::after {
+    content: '';
+    position: absolute;
+    width: 50px;
+    height: 3px;
+    background-color: #1c2029;
+    bottom: -10px;
+    left: 50%;
+    transform: translateX(-50%);
+}
+
+.services-grid {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 30px;
+    margin-top: 50px;
+}
+
+.service-box {
+    background-color: #fff;
+    padding: 40px 30px;
+    border-radius: 10px;
+    transition: all 0.4s ease;
+    box-shadow: 0 5px 15px rgba(0, 0, 0, 0.05);
+    position: relative;
+    overflow: hidden;
+}
+
+.service-box::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 5px;
+    height: 0;
+    background-color: #181b28;
+    transition: height 0.3s ease;
+}
+
+.service-box:hover::before {
+    height: 100%;
+}
+
+.service-box:hover {
+    transform: translateY(-10px);
+    box-shadow: 0 15px 30px rgba(0, 0, 0, 0.1);
+}
+
+.service-icon {
+    font-size: 40px;
+    color: #1e2227;
+    margin-bottom: 20px;
+}
+
+.service-box h3 {
+    margin: 20px 0;
+    font-size: 22px;
+    color: #000;
+}
+
+.service-box p {
+    color: #666;
+    line-height: 1.6;
+}
+
+.portfolio {
+    padding: 100px 0;
+    background-color: #f5f5f5;
+    text-align: center;
+}
+
+.portfolio-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
+    gap: 30px;
+    margin-top: 50px;
+}
+
+.portfolio-item {
+    background-color: #fff;
+    border-radius: 10px;
+    overflow: hidden;
+    box-shadow: 0 5px 15px rgba(0, 0, 0, 0.05);
+    transition: all 0.4s ease;
+}
+
+.portfolio-item:hover {
+    transform: scale(1.05) rotate(3deg);
+    box-shadow: 0 10px 25px rgba(0, 0, 0, 0.1);
+}
+
+.portfolio-img {
+    width: 100%;
+    height: 200px;
+    object-fit: cover; 
+}
+
+.portfolio-info {
+    padding: 20px;
+}
+
+.testimonials {
+    padding: 100px 0;
+    text-align: center;
+}
+
+.testimonials-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
+    gap: 30px;
+    margin-top: 50px;
+}
+
+.testimonial {
+    background-color: #c0c1c3;
+    padding: 30px;
+    border-radius: 10px;
+    box-shadow: 0 5px 15px rgba(0, 0, 0, 0.05);
+    transition: all 0.3s ease; }
+
+.testimonial p {
+    font-style: italic;
+    margin-bottom: 20px;
+}
+
+.testimonial .client {
+    font-weight: bold;
+    color: #555;
+}
+.testimonial:hover {
+    transform: scale(1.05);
+    box-shadow: 0 10px 25px rgba(82, 88, 102, 0.3);
+}
+
+.contact {
+    padding: 100px 0;
+    background-color: #f5f5f5;
+    text-align: center;
+}
+
+.section-title {
+    font-size: 36px;
+    margin-bottom: 50px;
+    position: relative;
+    display: inline-block;
+    color: #000;
+}
+
+.section-title::after {
+    content: '';
+    position: absolute;
+    width: 50px;
+    height: 3px;
+    background-color: #1d1e26;
+    bottom: -10px;
+    left: 50%;
+    transform: translateX(-50%);
+}
+
+.contact-form {
+    max-width: 600px;
+    margin: 0 auto;
+    background-color: #fff;
+    padding: 40px;
+    border-radius: 10px;
+    box-shadow: 0 5px 15px rgba(0, 0, 0, 0.05);
+}
+
+.form-group {
+    margin-bottom: 25px;
+    text-align: left;
+}
+
+.form-group label {
+    display: block;
+    margin-bottom: 8px;
+    font-weight: bold;
+    color: #333;
+}
+
+.form-group input,
+.form-group textarea {
+    width: 100%;
+    padding: 12px 0;
+    border: none;
+    border-bottom: 2px solid #ddd;
+    font-size: 16px;
+    transition: all 0.3s ease;
+    background-color: transparent;
+}
+
+.form-group input:focus,
+.form-group textarea:focus {
+    outline: none;
+    border-bottom-color: #1d1e26;
+}
+
+.form-group textarea {
+    height: 120px;
+    resize: none;
+}
+
+.submit-btn {
+    background-color: #7c7c7e;
+    color: #363535;
+    border: none;
+    padding: 12px 30px;
+    border-radius: 4px;
+    font-weight: bold;
+    cursor: pointer;
+    transition: all 0.3s ease;
+    display: block;
+    width: 100%;
+    font-size: 16px;
+    margin-top: 20px;
+}
+
+.submit-btn:hover {
+    transform: scale(1.05);
+    background-color: #38383a;
+    color: #cac7c7;
+}
+
+.form-group::after {
+    content: '';
+    display: block;
+    height: 2px;
+    background-color: #ddd;
+    margin-top: -2px;
+}
+
+.form-group:focus-within::after {
+    background-color: #1d1e26;
+}
+
+footer {
+    background-color: #dad6d6;
+    color: #131212;
+    text-align: center;
+    padding: 20px 0;
+}
+
+/* 📱 الموبايل + 💻 التابلت */
+@media (max-width: 768px) {
+  nav {
+    flex-direction: row;
+    gap: 10px;
+    padding: 8px;
+  }
+
+  .nav-links {
+    flex-direction: row;
+    margin-top: 0;
+  }
+
+  .nav-links li {
+    margin: 0 8px;
+  }
+
+  .hero {
+    background: linear-gradient(rgba(0, 0, 0, 0.7), rgba(0, 0, 0, 0.7)),
+                url(WhatsApp\ Image\ 2025-09-08\ at\ 14.13.32_f072c05c.jpg) no-repeat center center/cover;
+    height: 85vh;
+  }
+
+  .hero h1 {
+    font-size: 28px;
+  }
+
+  .hero p {
+    font-size: 16px;
+  }
+
+  .services-grid,
+  .testimonials-grid,
+  .portfolio-grid {
+    grid-template-columns: repeat(2, 1fr);
+  }
+
+  .contact-form {
+    padding: 20px;
+  }
+
+  .btn {
+    padding: 10px 20px;
+    font-size: 14px;
+  }
+}
+
+/* 🖥 اللاب/الشاشات المتوسطة */
+@media (min-width: 769px) and (max-width: 1200px) {
+  nav {
+    flex-direction: row;
+    gap: 15px;
+  }
+
+  .hero h1 {
+    font-size: 42px;
+  }
+
+  .services-grid,
+  .testimonials-grid,
+  .portfolio-grid {
+    grid-template-columns: repeat(3, 1fr);
+  }
+}
