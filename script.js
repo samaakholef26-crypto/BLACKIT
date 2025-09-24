@@ -50,6 +50,63 @@ document.addEventListener('DOMContentLoaded', function () {
       }
     }
   });
+});
 
-  // لو بتحب smooth scroll JS-based (مش لازم لأن CSS عملته)، ممكن تضيف هنا تعديل حسب الحاجة.
+// ===========================================
+// Lightbox functionality
+// ===========================================
+
+// Lightbox functionality
+document.addEventListener('DOMContentLoaded', function () {
+  const lightbox = document.getElementById('lightbox');
+  const lightboxImg = document.getElementById('lightbox-img');
+  const closeBtn = document.querySelector('.lightbox .close');
+  const nextBtn = document.querySelector('.lightbox .next');
+  const prevBtn = document.querySelector('.lightbox .prev');
+  const portfolioItems = document.querySelectorAll('.portfolio-item img');
+
+  let currentIndex = 0;
+  let images = Array.from(portfolioItems).map(img => img.src);
+
+  // helper عشان نعمل الفيد
+  function showImageWithFade(src) {
+    lightboxImg.classList.remove("fade"); 
+    void lightboxImg.offsetWidth; // restart animation
+    lightboxImg.src = src;
+    lightboxImg.classList.add("fade");
+  }
+
+  // افتح الصورة
+  portfolioItems.forEach((img, index) => {
+    img.addEventListener('click', () => {
+      lightbox.style.display = 'block';
+      currentIndex = index;
+      showImageWithFade(img.src);
+    });
+  });
+
+  // اقفل
+  closeBtn.addEventListener('click', () => {
+    lightbox.style.display = 'none';
+  });
+
+  // Next
+  nextBtn.addEventListener('click', () => {
+    currentIndex = (currentIndex + 1) % images.length;
+    showImageWithFade(images[currentIndex]);
+  });
+
+  // Prev
+  prevBtn.addEventListener('click', () => {
+    currentIndex = (currentIndex - 1 + images.length) % images.length;
+    showImageWithFade(images[currentIndex]);
+  });
+
+  // اقفل لما تدوس برا الصورة
+  lightbox.addEventListener('click', (e) => {
+    if (e.target === lightbox) {
+      lightbox.style.display = 'none';
+    }
+  });
+
 });

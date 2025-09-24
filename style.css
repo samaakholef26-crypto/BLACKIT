@@ -128,7 +128,7 @@ nav {
 /* Hero */
 .hero {
   background: linear-gradient(rgba(0, 0, 0, 0.7), rgba(0, 0, 0, 0.7)),
-              url(WhatsApp\ Image\ 2025-08-31\ at\ 21.52.06_c15d8829.jpg)
+              url(hero\ back.png)
               no-repeat center center/cover;
   height: calc(100vh - 80px);
   display: flex;
@@ -280,9 +280,10 @@ section {
   transition: all 0.4s ease;
 }
 
+/* تعديل الهوفر */
 .portfolio-item:hover {
-  transform: scale(1.05) rotate(3deg);
-  box-shadow: 0 10px 25px rgba(0, 0, 0, 0.1);
+  transform: scale(1.05);
+  box-shadow: 0 10px 25px rgba(82, 88, 102, 0.3);
 }
 
 .portfolio-img {
@@ -294,8 +295,12 @@ section {
 .portfolio-info {
   padding: 20px;
 }
+.portfolio-item img.hidden {
+  display: none;
+}
 
-/* Our Clients (fixed names, no duplication) */
+
+/* Our Clients */
 .ourclients-section {
   padding: 100px 0;
   text-align: center;
@@ -304,32 +309,31 @@ section {
 
 .ourclients-grid {
   display: grid;
-  grid-template-columns: repeat(auto-fill, minmax(280px, 1fr));
-  gap: 30px;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 40px;
+  align-items: center;
+  justify-items: center;
   margin-top: 50px;
 }
 
 .ourclient-card {
-  background-color: #c0c1c3;
-  padding: 30px;
-  border-radius: 10px;
-  box-shadow: 0 5px 15px rgba(0, 0, 0, 0.05);
+  background: transparent;
+  box-shadow: none;
   transition: all 0.3s ease;
 }
 
-.ourclient-card p {
-  font-style: italic;
-  margin-bottom: 20px;
+.ourclient-card img {
+  width: 100%;
+  max-width: 700px;
+  height: auto;
+  object-fit: contain;
+  filter: grayscale(100%);
+  transition: all 0.3s ease;
 }
 
-.ourclient-card .client {
-  font-weight: bold;
-  color: #555;
-}
-
-.ourclient-card:hover {
+.ourclient-card:hover img {
+  filter: grayscale(0);
   transform: scale(1.05);
-  box-shadow: 0 10px 25px rgba(82, 88, 102, 0.3);
 }
 
 /* Contact */
@@ -409,6 +413,77 @@ footer {
   text-align: center;
   padding: 20px 0;
 }
+/* Lightbox container */
+#lightbox {
+  display: none; /* بيظهر بالجافاسكربت */
+  position: fixed;
+  z-index: 9999;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background: rgba(0,0,0,0.9);
+  overflow: hidden;
+}
+
+/* الصورة */
+#lightbox-img {
+  display: block;
+  max-width: 90%;
+  max-height: 90vh;
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  box-shadow: 0 0 20px rgba(0,0,0,0.8);
+  border-radius: 8px;
+}
+
+/* close button */
+.lightbox .close {
+  position: absolute;
+  top: 15px;
+  right: 25px;
+  font-size: 40px;
+  font-weight: bold;
+  color: white;
+  cursor: pointer;
+  user-select: none;
+  z-index: 10000;
+}
+
+/* arrows */
+.lightbox .prev,
+.lightbox .next {
+  position: absolute;
+  top: 50%;
+  transform: translateY(-50%);
+  font-size: 50px;
+  color: white;
+  cursor: pointer;
+  user-select: none;
+  padding: 10px;
+  z-index: 10000;
+}
+
+.lightbox .prev { left: 20px; }
+.lightbox .next { right: 20px; }
+
+.lightbox .prev:hover,
+.lightbox .next:hover,
+.lightbox .close:hover {
+  color: #ccc;
+}
+/* Animation*/
+.fade {
+  animation: fadeEffect 0.4s;
+}
+
+@keyframes fadeEffect {
+  from { opacity: 0; }
+  to   { opacity: 1; }
+}
+
 
 /* Responsive: mobile */
 @media (max-width: 768px) {
@@ -449,6 +524,9 @@ footer {
 
   .hero {
     height: 85vh;
+    background: linear-gradient(rgba(0, 0, 0, 0.7), rgba(0, 0, 0, 0.7)),
+              url(ai-edited-image-1758730710708.jpg)
+              no-repeat center center/cover;
   }
 
   .hero h1 {
@@ -460,11 +538,10 @@ footer {
   }
 
   .services-grid,
-.ourclients-grid,
-.portfolio-grid {
-  grid-template-columns: 1fr;
-}
-
+  .portfolio-grid,
+  .ourclients-grid {
+    grid-template-columns: 1fr;
+  }
 
   .contact-form {
     padding: 20px;
@@ -483,13 +560,75 @@ footer {
     gap: 15px;
   }
 
+  .hero {
+    height: 85vh;
+    background: linear-gradient(rgba(0, 0, 0, 0.7), rgba(0, 0, 0, 0.7)),
+              url(ai-edited-image-1758730710708.jpg)
+              no-repeat center center/cover;
+  }
+
+
   .hero h1 {
     font-size: 42px;
   }
 
   .services-grid,
-  .ourclients-grid,
-  .portfolio-grid {
-    grid-template-columns: repeat(3, 1fr);
+  .portfolio-grid,
+  .ourclients-grid {
+    grid-template-columns: repeat(2, 1fr);
   }
+
 }
+
+/* Lightbox Popup */
+.lightbox {
+  display: none; /* مخفي افتراضي */
+  position: fixed;
+  z-index: 2000;
+  padding-top: 60px;
+  left: 0; top: 0;
+  width: 100%; height: 100%;
+  background: rgba(0,0,0,0.9);
+  text-align: center;
+}
+
+.lightbox img {
+  max-width: 90%;
+  max-height: 80vh;
+  margin: auto;
+  display: block;
+}
+
+.lightbox .close {
+  position: absolute;
+  top: 20px; right: 35px;
+  color: #fff;
+  font-size: 40px;
+  font-weight: bold;
+  cursor: pointer;
+}
+
+.lightbox .controls {
+  position: absolute;
+  top: 50%;
+  width: 100%;
+  display: flex;
+  justify-content: space-between;
+  color: #fff;
+  font-size: 50px;
+  padding: 0 20px;
+  box-sizing: border-box;
+}
+
+.lightbox .prev,
+.lightbox .next {
+  cursor: pointer;
+  user-select: none;
+  transition: 0.3s;
+}
+
+.lightbox .prev:hover,
+.lightbox .next:hover {
+  color: #ddd;
+}
+
